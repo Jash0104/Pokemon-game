@@ -21,6 +21,7 @@ export default {
 }
 </script>
 <style>
+
 ul {
     list-style-type: none;
     padding-inline-start: 0px !important
@@ -33,10 +34,14 @@ li {
     cursor: pointer;
     margin-bottom: 10px;
     width: 250px;
+    position: relative;
+    overflow: hidden;
 }
 
 li:hover {
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: #efe8e8;
+    transform: scale(1.05);
+
 }
 
 .options-container {

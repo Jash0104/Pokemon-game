@@ -1,17 +1,21 @@
 <template>
-    <h1 v-if="!pokemon">Espere por favor...</h1>
-    <div v-else>
-        <h1>¿Quién es este Pokemón?</h1>
-        <PokemonImage :pokemonId="pokemon.id" :showPokemon="showPokemon" />
-        <PokemonOptions :pokemons="pokemonArr" @selection="checkAnswer($event)" />
+    <div class="bg-dark"></div>
 
-        <template v-if="showAnswer" class="fade-in">
-            <h2>{{ message }}</h2>
-            <button type="button" @click="newGame" class="new-game-button">
-                New Game
-            </button>
-        </template>
+    <div class="fondo">
+        <h1 v-if="!pokemon">Espere por favor...</h1>
+        <div v-else>
+            <h1 class="title">¿Quién es este Pokemón?</h1>
+            <PokemonImage :pokemonId="pokemon.id" :showPokemon="showPokemon" />
+            <PokemonOptions :pokemons="pokemonArr" @selection="checkAnswer($event)" />
 
+            <template v-if="showAnswer" class="fade-in">
+                <h2>{{ message }}</h2>
+                <button type="button" @click="newGame" class="new-game-button">
+                    New Game
+                </button>
+            </template>
+
+        </div>
     </div>
 </template>
 <script>
@@ -62,13 +66,39 @@ export default {
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+.bg-dark {
+    height: 100vh;
+    left: 0px;
+    max-height: 100%;
+    max-width: 100%;
+    position: fixed;
+    top: 0px;
+    width: 100vw;
+    z-index: -100;
+    background: rgb(236,89,45);
+    background: linear-gradient(246deg, rgba(236,89,45,1) 0%, rgba(234,210,48,0.42629551820728295) 100%);
+
+}
+.bg-dark {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+h1, h2 {
+    margin-top: 30px;
+    color: white;
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 2px;
+    font-weight: 500;
+}
 .new-game-button {
   margin-bottom: 20px;
   padding: 0.5em 1em;
   border: none;
   border-radius: 5px;
   font-weight: bold;
-  letter-spacing: 5px;
+  letter-spacing: 3px;
   text-transform: uppercase;
   cursor: pointer;
   color: #d70750;
@@ -101,6 +131,13 @@ export default {
 
 .new-game-button:hover::before {
   width: 250%;
+}
+
+.fondo {
+    position: absolute;
+    inset: 0;
+    /* background: rgb(255,255,255);
+    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(97,97,97,0.42629551820728295) 100%); */
 }
 
 </style>
